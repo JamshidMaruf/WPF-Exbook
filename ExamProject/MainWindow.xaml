@@ -1,0 +1,108 @@
+﻿<Window x:Class="ExamProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExamProject"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        mc:Ignorable="d" Loaded="Window_Loaded"
+        Title="MainWindow" Height="600" Width="803" Background="#E5E5E5">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0">
+                <TextBox Name="SearchBar"
+                         TextChanged="SearchBar_TextChenged"
+                         Margin="8"
+                         Background="#92A9BD"
+                         md:TextFieldAssist.TextFieldCornerRadius="3"
+                         md:HintAssist.Hint="Search" BorderThickness="0"
+                         Foreground="White" 
+                         Padding="8"
+                         md:TextFieldAssist.UnderlineBrush="Transparent"/>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Visible">
+                    <ItemsControl Name="StudentsList"/>
+                </ScrollViewer>
+            </Grid>
+            
+        </Grid>
+
+        <GridSplitter Grid.Column="1" Width="2"/>
+
+        <Grid Grid.Column="2" Background="#E5E5E5">
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="9*"/>
+                </Grid.RowDefinitions>
+
+                <WrapPanel Grid.Row="0"
+                       Margin="2"
+                       Background="#E5E5E5"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center">
+
+                    <Button x:Name="AddBtn"
+                        Style="{StaticResource MaterialDesignRaisedButton}" 
+                        Click="AddBtn_Click"
+                        Background="#6200EE"
+                        ToolTip="Resource name: MaterialDesignRaisedButton"
+                        Margin="6"
+                        Width="140"
+                        Height="40"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Content="Add"
+                        md:ButtonAssist.CornerRadius="7"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, 
+                        RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+
+                    <Button x:Name="SaveBtn"
+                        Style="{StaticResource MaterialDesignRaisedButton}" 
+                        Click="SaveBtn_Click"
+                        Background="#6200EE"
+                        ToolTip="Resource name: MaterialDesignRaisedButton"
+                        Margin="6"
+                        Width="140"
+                        Height="40"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Content="Save"
+                        md:ButtonAssist.CornerRadius="7"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, 
+                        RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+
+                    <Button x:Name="DeleteBtn"
+                        Style="{StaticResource MaterialDesignRaisedButton}" 
+                        Click="DeleteBtn_Click"
+                        Background="#6200EE"
+                        ToolTip="Resource name: MaterialDesignRaisedButton"
+                        Margin="6"
+                        Width="140"
+                        Height="40"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Content="Delete"
+                        md:ButtonAssist.CornerRadius="7"
+                        IsEnabled="{Binding DataContext.ControlsEnabled, 
+                        RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" />
+
+                </WrapPanel>
+                <Frame x:Name="InputerArea" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

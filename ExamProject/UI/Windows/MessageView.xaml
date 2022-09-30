@@ -1,0 +1,52 @@
+﻿<Window x:Class="ExamProject.UI.Windows.MessageView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ExamProject.UI.Windows"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        mc:Ignorable="d"
+        Background="#E5E5E5"
+        Title="MessageView" Height="150" Width="300">
+    <Grid>
+        <Border CornerRadius="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="1" Background="#E5E5E5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition />
+                        <RowDefinition Height="70"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel VerticalAlignment="Center"
+                                HorizontalAlignment="Center"
+                                Orientation="Horizontal">
+                        <TextBlock  Text="Success"
+                                    VerticalAlignment="Center"
+                                    Margin="10 0 0 0"
+                                    FontWeight="DemiBold" RenderTransformOrigin="0.396,0.689"/>
+                    </StackPanel>
+
+                    <Button Style="{StaticResource MaterialDesignRaisedButton}"
+                            ToolTip="Resource name: MaterialDesignRaisedButton"
+                            Width="120"
+                            BorderThickness="0" md:ShadowAssist.Darken="True"
+                            md:ShadowAssist.ShadowDepth="Depth3"
+                            Content="OK" 
+                            Margin="90,54,90,38"
+                            Background="RoyalBlue"
+                            md:ButtonAssist.CornerRadius="5"
+                            IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource 
+                            FindAncestor, AncestorType=Window}}" Click="Button_Click" Grid.RowSpan="2"/>
+                </Grid>
+
+            </Grid>
+
+        </Border>
+
+    </Grid>
+</Window>
